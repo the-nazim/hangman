@@ -2,6 +2,12 @@
 #include <string>
 #include <bits/stdc++.h>
 #include <fstream>
+#include <cstdlib>
+#ifdef _WIN32
+#define CLEAR "cls"
+#else
+#define CLEAR "clear"
+#endif
 
 using namespace std;
 
@@ -64,7 +70,7 @@ int main()
             {
                 cout<<i<<" ";
                 if(i!='_')
-                    guess_word += i;   
+                guess_word += i;   
             }
             cout<<endl;
             cout<<guess_word<<endl;
@@ -73,21 +79,34 @@ int main()
                 cout<<"You win!"<<endl;
                 break;
             }
-            
         }
         else if((secret_word.find(guess) != string::npos) && (letters[guess]<guess_letter[guess]))
         {
             cout<<"Already guessed!"<<endl;
+            for(auto i: vect_res)
+            {
+                cout<<i<<" ";
+                if(i!='_')
+                guess_word += i;   
+            }
+            cout<<endl;
         }
         else
         {
             cout<<"Wrong guess!"<<endl;
+            for(auto i: vect_res)
+            {
+                cout<<i<<" ";
+                if(i!='_')
+                guess_word += i;   
+            }
+            cout<<endl;
             attempt++;
         }
         if(attempt == 7)
-        cout<< "\n  ================|\n //               |\n ||               |\n ||               |\n ||              _^_\n ||             / ..\\\n ||            [  _  ]\n ||             \\___/\n ||\n ||               ||    - *Snap!!!*\n ||              /||\\\n ||             //||\\\\\n ||            // || \\\\\n ||            *  ||  *\n ||              //\\\\\n ||             //  \\\\\n /\\            //    \\\\\n//\\\\         ***      ***\n/||\\\\\n_||_\\\\\n";
+            cout<< "\n  ================|\n //               |\n ||               |\n ||               |\n ||              _^_\n ||             / ..\\\n ||            [  _  ]\n ||             \\___/\n ||\n ||               ||    - *Snap!!!*\n ||              /||\\\n ||             //||\\\\\n ||            // || \\\\\n ||            *  ||  *\n ||              //\\\\\n ||             //  \\\\\n /\\            //    \\\\\n//\\\\         ***      ***\n/||\\\\\n_||_\\\\\n";
         else if(attempt == 6)
-            cout<< "\n  ================|\n //               |\n ||               |\n ||               |\n ||              _^_\n ||             / ..\\\n ||            [  _  ]\n ||             \\___/\n ||               ||\n ||              /||\\\n ||             //||\\\\\n ||            // || \\\\\n ||            *  ||  *\n ||              //\n ||             //\n ||            //\n /\\          ***\n//\\\\ \n/||\\\\ \n_||_\\\\\n";
+                cout<< "\n  ================|\n //               |\n ||               |\n ||               |\n ||              _^_\n ||             / ..\\\n ||            [  _  ]\n ||             \\___/\n ||               ||\n ||              /||\\\n ||             //||\\\\\n ||            // || \\\\\n ||            *  ||  *\n ||              //\n ||             //\n ||            //\n /\\          ***\n//\\\\ \n/||\\\\ \n_||_\\\\\n";
         else if(attempt == 5)
             cout<< "\n  ================|\n //               |\n ||               |\n ||               |\n ||              _^_\n ||             / ..\\\n ||            [  _  ]\n ||             \\___/\n ||               ||\n ||              /||\\\n ||             //||\\\\\n ||            // || \\\\\n ||            *  ||  *\n ||\n ||\n ||\n /\\\n//\\\\\n/||\\\\\n_||_\\\\\n";
         else if(attempt == 4)
@@ -99,7 +118,11 @@ int main()
         else if(attempt == 1)
             cout<< "\n  ================|\n //               |\n ||               |\n ||               |\n ||              _^_\n ||             / ..\\\n ||            [  _  ]\n ||             \\___/\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n /\\\n//\\\\\n/||\\\\\n_||_\\\\\n";
         else if(attempt == 0)
-            cout<< "\n  ================|\n //               |\n ||               |\n ||               |\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n /\\\n//\\\\\n/||\\\\\n_||_\\\\\n";      
-
+            cout<< "\n  ================|\n //               |\n ||               |\n ||               |\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n ||\n /\\\n//\\\\\n/||\\\\\n_||_\\\\\n";       
+        
+        cout<<"Press enter"<<endl;
+        cin.ignore(); 
+        cin.get();
+        system(CLEAR);
     }
 }
